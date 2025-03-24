@@ -111,5 +111,5 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
 </body>
-<?= $_SESSION['message_color'] = ''?>
+<?= $_SESSION['message'] = ''?>
 </html>
