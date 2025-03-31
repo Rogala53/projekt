@@ -113,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Bank Accounts</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="favico.png" type="image/x-icon">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <div id="container">
@@ -127,13 +127,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <h2>Balance: <?= $_SESSION['account_1_balance'] ?> zł</h2>
                 <form method="post">
                     <input type="hidden" name="form_token" value="<?= $_SESSION['form_token'] ?>">
-                    <input id="addInput1" type="number" name="valueToAdd1" min="0.01" step="0.01" placeholder="Deposit">
-                    <button id="depositButton1" type="submit" name="action" value="deposit1">Add balance</button>
-                    <input id="withdrawInput1" type="number" name="valueToWithdraw1" min="1" step="0.01"
-                        placeholder="Withdraw">
-                    <button id="withdrawButton1" type="submit" name="action" value="withdraw1">Withdraw</button>
-                    <input id="transferInput1" type="number" name="valueToTransfer1" min="1" step="0.01"
-                        placeholder="Transfer">
+                    <label id="addLabel1" for="addInput1">Deposit</label>
+                    <input id="addInput1" type="number" name="valueToAdd1" min="0.01" step="0.01">
+                    <button id="depositButton1" type="submit" name="action" value="deposit1">Add balance</button><br>
+                    <label id="withdrawLabel1" for="withdrawInput1">Withdraw</label>
+                    <input id="withdrawInput1" type="number" name="valueToWithdraw1" min="1" step="0.01">
+                    <button id="withdrawButton1" type="submit" name="action" value="withdraw1">Withdraw</button><br>
+                    <label id="transferLabel1" for="transferInput1">Transfer</label>
+                    <input id="transferInput1" type="number" name="valueToTransfer1" min="1" step="0.01">
                     <button id="transferButton1" type="submit" name="action" value="transfer1">Transfer</button>
                 </form>
             </div>
@@ -142,13 +143,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <h2>Balance: <?= $_SESSION['account_2_balance'] ?> zł</h2>
                 <form method="post">
                     <input type="hidden" name="form_token" value="<?= $_SESSION['form_token'] ?>">
-                    <input id="addInput2" type="number" name="valueToAdd2" min="0.01" step="0.01" placeholder="Deposit">
-                    <button id="depositButton2" type="submit" name="action" value="deposit2">Add balance</button>
-                    <input id="withdrawInput2" type="number" name="valueToWithdraw2" min="0.01" step="0.01"
-                        placeholder="Withdraw">
-                    <button id="withdrawButton2" type="submit" name="action" value="withdraw2">Withdraw</button>
-                    <input id="transferInput2" type="number" name="valueToTransfer2" min="0.01" step="0.01"
-                        placeholder="Transfer">
+                    <label id="addLabel2" for="addInput2">Deposit</label>
+                    <input id="addInput2" type="number" name="valueToAdd2" min="0.01" step="0.01">
+                    <button id="depositButton2" type="submit" name="action" value="deposit2">Add balance</button><br>
+                    <label id="withdrawLabel2" for="withdrawInput2">Withdraw</label>
+                    <input id="withdrawInput2" type="number" name="valueToWithdraw2" min="0.01" step="0.01">
+                    <button id="withdrawButton2" type="submit" name="action" value="withdraw2">Withdraw</button><br>
+                    <label id="transferLabel2" for="transferInput2">Transfer</label>
+                    <input id="transferInput2" type="number" name="valueToTransfer2" min="0.01" step="0.01">
                     <button id="transferButton2" type="submit" name="action" value="transfer2">Transfer</button>
                 </form>
             </div>

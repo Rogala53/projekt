@@ -35,21 +35,11 @@ div.green {
   position: absolute;
   font-size: 16px;
   top: 10px;
-  animation: slide 0.5s ease-out forwards, transparency 4s ease-out 1s forwards;
+  animation: slideDown 0.5s ease-out forwards, slideTop 1s ease-out 3s forwards;
   border-radius: 10px;
 }
 
-@keyframes transparency {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes slide {
+@keyframes slideDown {
   0% {
     transform: translateY(-100px);
   }
@@ -59,6 +49,15 @@ div.green {
   }
 }
 
+@keyframes slideTop {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+}
 #container {
   margin-top: 25px;
   display: flex;
@@ -99,8 +98,12 @@ form input {
   border: 1px solid black;
   font-size: 16px;
   border-radius: 5px;
+  margin-top: 10px;
 }
-
+form label {
+  position: absolute;
+  transition: all 0.2s ease-in-out;
+}
 button {
   color: white;
   cursor: pointer;
@@ -124,11 +127,11 @@ button:hover {
 
 #account2 button {
   color: black;
-  background-color: rgb(252, 134, 0);
+  background-color: rgb(255, 136, 0);
 }
 
 #account2 button:hover {
-  background-color: rgb(255, 155, 40);
+  background-color: rgb(237, 126, 0);
 }
 
 #history-list {
