@@ -1,91 +1,184 @@
 * {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.red {
-    border: 2px solid red;
-    color: red;
+
+body {
+  background-color: rgb(246, 246, 246);
 }
-.green {
-    border: 2px solid rgb(0, 160, 0);
-    color: rgb(0, 160, 0);
+
+div.red {
+  border: 2px solid #ff0000;
+  color: red;
 }
+
+li.red {
+  color: red;
+}
+
+li.green {
+  color: rgb(18, 145, 18);
+}
+
+div.green {
+  border: 2px solid rgb(0, 160, 0);
+  color: rgb(0, 160, 0);
+}
+
 #message {
-    background-color: rgb(243, 243, 243);
-    padding: 20px;
-    text-align: center;
-    font-weight: bolder;
-    position: absolute;
-    font-size: 16px;
-    top: 10px;
-    animation: slide 0.5s ease-out forwards, transparency 4s ease-out 1s forwards;
-    border-radius: 10px;
-    
+  background-color: rgb(243, 243, 243);
+  padding: 20px;
+  text-align: center;
+  font-weight: bolder;
+  position: absolute;
+  font-size: 16px;
+  top: 10px;
+  animation: slide 0.5s ease-out forwards, transparency 4s ease-out 1s forwards;
+  border-radius: 10px;
 }
+
 @keyframes transparency {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;           
-    }
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
+
 @keyframes slide {
-    0% {
-        transform: translateY(-100px);
-    }
-    100% {
-        transform: translateY(0px);
-    }
+  0% {
+    transform: translateY(-100px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 #container {
-    display: flex;
-    justify-content:space-around;
-    margin-top: 50px;
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-#account1, #account2 {
-    padding: 20px;
-    width: 300px;
-    text-align: center;    
+
+#accounts {
+  display: flex;
+  max-width: 800px;
+  margin-bottom: 20px;
 }
+
+#account1 {
+  margin-right: 240px;
+}
+#account1,
+#account2 {
+  padding: 20px;
+  width: 45%;
+  text-align: center;
+}
+
 h2 {
-    font-size: 32px;
+  font-size: 32px;
 }
+
 form {
-    margin-top: 20px;
+  margin-top: 20px;
 }
+
 form > * {
-    margin: 10px;
-    padding: 15px;
+  margin: 10px;
+  padding: 15px;
 }
+
 form input {
-    border: 1px solid black;
-    font-size: 16px;
+  border: 1px solid black;
+  font-size: 16px;
+  border-radius: 5px;
 }
+
 button {
-    color: white;
-    cursor: pointer;
-    background-color:rgba(10, 0, 120, 0.73);
-    border: none;
-    border-radius:10px;
-    margin-bottom: 20px;
+  color: white;
+  cursor: pointer;
+  background-color: rgba(10, 0, 120, 0.73);
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
+
 button:hover {
-    background-color: rgb(0, 0, 120);
+  background-color: rgb(0, 0, 120);
 }
-img {
-    margin-bottom: 22px;
+
+#account2 img {
+  margin-bottom: 22px;
 }
+
 #account1 img {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
+
 #account2 button {
-    color: black;
-    background-color: rgb(252, 134, 0);
+  color: black;
+  background-color: rgb(252, 134, 0);
 }
+
 #account2 button:hover {
-    background-color: rgb(255, 155, 40);
+  background-color: rgb(255, 155, 40);
+}
+
+#history-list {
+  margin-top: 60px;
+  font-weight: bold;
+}
+
+#history-list li.green {
+  color: #129112;
+}
+
+#history-list li.red {
+  color: red;
+}
+
+#history-list li img {
+  position: relative;
+  top: 5px;
+  margin-right: 10px;
+}
+
+details {
+  width: 800px;
+}
+
+details ul li span {
+  float: right;
+}
+
+details ul li {
+  width: 100%;
+  padding: 10px;
+  border-bottom: 1px solid lightgray;
+  font-size: 16px;
+  text-align: left;
+  list-style: none;
+}
+
+summary {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 20px;
+  width: 100px;
+  padding: 3px;
+  list-style-type: none;
+}
+
+summary:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
