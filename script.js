@@ -22,7 +22,7 @@ function labelAnimateFocus(label) {
 function labelAnimateBlur(label, input) {
   if(!input.value) {
     label.style.transform = "translate(0, 0) scale(1)";
-    label.style.color = "rgb(0, 0, 0, 0.5)";
+    label.style.color = "rgb(0, 0, 0, 0.8)";
   }
 }
 

@@ -7,8 +7,24 @@
 
 body {
   background-color: rgb(246, 246, 246);
+  display: flex;
+  flex-direction: column;
 }
 
+#message {
+  background-color: rgb(243, 243, 243);
+  padding: 20px;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-weight: bolder;
+  font-size: 16px;
+  animation: slideDown 0.5s ease-out forwards, slideTop 1s ease-out 3s forwards;
+  border-radius: 10px;
+  z-index: 1000;
+}
 div.red {
   border: 2px solid #ff0000;
   color: red;
@@ -27,57 +43,52 @@ div.green {
   color: rgb(0, 160, 0);
 }
 
-#message {
-  background-color: rgb(243, 243, 243);
-  padding: 20px;
-  text-align: center;
-  font-weight: bolder;
-  position: absolute;
-  font-size: 16px;
-  top: 10px;
-  animation: slideDown 0.5s ease-out forwards, slideTop 1s ease-out 3s forwards;
-  border-radius: 10px;
-}
+
 
 @keyframes slideDown {
   0% {
-    transform: translateY(-100px);
+    transform: translate(-50%, -100px);
   }
 
   100% {
-    transform: translateY(0px);
+    transform: translate(-50%, 0px);
   }
 }
 
 @keyframes slideTop {
   0% {
-    transform: translateY(0px);
+    transform: translate(-50%, 0px);
+    opacity: 1;
   }
   100% {
-    transform: translateY(-100px);
+    transform: translate(-50%, -100px);
     opacity: 0;
   }
 }
-#container {
-  margin-top: 25px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+#sidebar {
+  width: 280px;
+  background-color: rgb(246, 246, 246);
 }
-
+#sidebar span {
+  margin-left: 10px;
+}
+#container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
 #accounts {
   display: flex;
-  max-width: 800px;
-  margin-bottom: 20px;
-}
-
-#account1 {
+  flex-direction: row;
+  justify-content: space-around;
+  flex-grow: 1;
+  gap: 10px;
+  margin-top: 50px;
   margin-right: 240px;
 }
 #account1,
 #account2 {
-  padding: 20px;
-  width: 45%;
+  width: 20%;
   text-align: center;
 }
 
@@ -99,10 +110,14 @@ form input {
   font-size: 16px;
   border-radius: 5px;
   margin-top: 10px;
+  padding: 15px;
 }
 form label {
   position: absolute;
   transition: all 0.2s ease-in-out;
+  margin-top: 10px;
+  color: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
 }
 button {
   color: white;
@@ -134,54 +149,9 @@ button:hover {
   background-color: rgb(237, 126, 0);
 }
 
-#history-list {
-  margin-top: 60px;
-  font-weight: bold;
-}
-
-#history-list li.green {
-  color: #129112;
-}
-
-#history-list li.red {
-  color: red;
-}
-
-#history-list li img {
-  position: relative;
-  top: 5px;
-  margin-right: 10px;
-}
-
-details {
-  width: 800px;
-}
-
-details ul li span {
-  float: right;
-}
-
-details ul li {
-  width: 100%;
-  padding: 10px;
-  border-bottom: 1px solid lightgray;
-  font-size: 16px;
-  text-align: left;
-  list-style: none;
-}
-
-summary {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+footer {
   text-align: center;
-  font-size: 20px;
-  width: 100px;
-  padding: 3px;
-  list-style-type: none;
-}
-
-summary:hover {
-  cursor: pointer;
-  text-decoration: underline;
+  margin-top: 50px;
+  padding: 20px;
+  background-color: rgb(246, 246, 246);
 }
