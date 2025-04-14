@@ -1,5 +1,5 @@
 <?php
-include_once 'session.php';
+include_once 'baSession.php';
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -45,7 +45,7 @@ include_once 'session.php';
     <div id="accounts">
       <div id="account1">
         <img src="./images/PKO.png" alt="PKO" width="100px" height="122px">
-        <h2>Balance: <?= $_SESSION['account_1_balance'] ?> zł</h2>
+        <h2>Balance: <span id="balance1"><?= $_SESSION['account_1_balance'] ?></span> zł</h2>
         <form method="post">
           <input type="hidden" name="form_token" value="<?= $_SESSION['form_token'] ?>">
           <label id="addLabel1" for="addInput1">Deposit</label>
@@ -61,7 +61,7 @@ include_once 'session.php';
       </div>
       <div id="account2">
         <img src="./images/ING.png" alt="ING" width="100px">
-        <h2>Balance: <?= $_SESSION['account_2_balance'] ?> zł</h2>
+        <h2>Balance: <span id="balance2"><?= $_SESSION['account_2_balance'] ?></span> zł</h2>
         <form method="post">
           <input type="hidden" name="form_token" value="<?= $_SESSION['form_token'] ?>">
           <label id="addLabel2" for="addInput2">Deposit</label>
@@ -85,6 +85,7 @@ include_once 'session.php';
     </ul>
     <p class="text-center text-body-secondary">© 2025 Accounts, Inc</p>
   </footer>
+</div>
 </body>
 <!-- Usunięcie treści wiadomości -->
 <?= $_SESSION['message'] = '' ?>

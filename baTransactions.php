@@ -67,4 +67,3 @@ function transfer($accountFrom, $valueToTransfer, $accountTo)
     }
     return array($accountFrom, $accountTo);
 }
-?>

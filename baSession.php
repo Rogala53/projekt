@@ -1,5 +1,5 @@
 <?php
-include_once 'transactions.php';
+include_once 'baTransactions.php';
 // obsługa sesji i formularza
 session_start();
 if (!isset($_SESSION['account_1_balance'])) {
@@ -37,4 +37,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['form_token'] = bin2hex(random_bytes(16));
     }
 }
-?>

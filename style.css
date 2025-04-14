@@ -21,7 +21,7 @@ body {
   text-align: center;
   font-weight: bolder;
   font-size: 16px;
-  animation: slideDown 0.5s ease-out forwards, slideTop 1s ease-out 3s forwards;
+  animation: slideDown 0.5s ease-in-out forwards, slideTop 1s ease-in-out 3s forwards;
   border-radius: 10px;
   z-index: 1000;
 }
@@ -94,6 +94,8 @@ div.green {
 
 h2 {
   font-size: 32px;
+  margin-bottom: 20px;
+  width:max-content;
 }
 
 form {
@@ -149,9 +151,16 @@ button:hover {
   background-color: rgb(237, 126, 0);
 }
 
+
+#loading-spinner {
+  display: none;
+  position: fixed;
+}
 footer {
-  text-align: center;
-  margin-top: 50px;
-  padding: 20px;
-  background-color: rgb(246, 246, 246);
+  display: block;
+  position: relative;
+  width: 100%;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
