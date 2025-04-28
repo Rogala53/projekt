@@ -1,5 +1,5 @@
 <?php
-include_once 'baTransactions.php';
+include_once 'transactions.php';
 // obsługa sesji i formularza
 session_start();
 if (!isset($_SESSION['account_1_balance'])) {

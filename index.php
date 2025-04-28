@@ -1,5 +1,5 @@
 <?php
-include_once 'baSession.php';
+include_once 'backend/session.php';
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -14,7 +14,9 @@ include_once 'baSession.php';
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="style.css">
   <link rel="shortcut icon" href="favico.png" type="image/x-icon">
+  <script src="jquery-x.x.min.js" defer></script>
   <script src="script.js" defer></script>
+  <script src="darkMode.js" defer></script>
 </head>
 
 <body>
@@ -23,8 +25,8 @@ include_once 'baSession.php';
     <?= $_SESSION['message'] ?>
   </div>
   <div id="container">
-    <div id="sidebar" class="d-flex flex-column flex-shrink-0 p-3 text-bg-light ">
-      <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-black text-decoration-none">
+    <div id="sidebar" class="d-flex flex-column flex-shrink-0 p-3 ">
+      <a href="index.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none ">
         <span class="fs-4">Bank Accounts</span>
       </a>
       <hr>
@@ -35,16 +37,16 @@ include_once 'baSession.php';
           </a>
         </li>
         <li>
-          <a href="history.php" class="nav-link text-black">
+          <a href="history.php" class="nav-link">
             History
           </a>
         </li>
       </ul>
     </div>
-
+    <img src="./images/dark-mode.png" alt="darkmode" id="darkModeButton">
     <div id="accounts">
       <div id="account1">
-        <img src="./images/PKO.png" alt="PKO" width="100px" height="122px">
+        <img id="pkoLogo" alt="PKO" width="100px" height="122px">
         <h2>Balance: <span id="balance1"><?= $_SESSION['account_1_balance'] ?></span> zł</h2>
         <form method="post">
           <input type="hidden" name="form_token" value="<?= $_SESSION['form_token'] ?>">
@@ -78,14 +80,13 @@ include_once 'baSession.php';
     </div>
   </div>
   <footer class="py-3 my-4">
-    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
-      <li class="nav-item"><a href="history.php" class="nav-link px-2 text-body-secondary">History</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+    <ul class="nav justify-content-center pb-3 mb-3">
+      <li class="nav-item"><a href="#" class="px-2">Accounts</a></li>
+      <li class="nav-item"><a href="history.php" class="px-2">History</a></li>
     </ul>
-    <p class="text-center text-body-secondary">© 2025 Accounts, Inc</p>
+    <p class="text-center">© 2025 Accounts, Inc</p>
   </footer>
-</div>
+  </div>
 </body>
 <!-- Usunięcie treści wiadomości -->
 <?= $_SESSION['message'] = '' ?>
