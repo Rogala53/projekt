@@ -69,14 +69,19 @@ function FocusOutOfInput(input) {
 
 // funkcje do animacji labeli
 function AnimateLabelFocusIn(label) {
-  label.style.transform = "translate(-10px, -18px) scale(0.7)";
-  label.style.opacity = "1";
+  if(window.innerWidth > 1520) {
+    label.style.transform = "translate(-10px, -18px) scale(0.7)";
+    label.style.opacity = "1";
+  }
+  
 }
 
 function AnimateLabelFocusOut(label, input) {
-  if (!input.value) {
-    label.style.transform = "translate(0, 0) scale(1)";
-    label.style.opacity = "0.8";
+  if(window.innerWidth > 1520) {
+    if (!input.value) {
+      label.style.transform = "translate(0, 0) scale(1)";
+      label.style.opacity = "0.8";
+    }
   }
 }
 function FormatAndRoundBalance(balance) {

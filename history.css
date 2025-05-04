@@ -44,10 +44,9 @@ body {
 
 #history-list {
   flex-direction: column;
-  margin: 0 auto;
-  margin-top: 60px;
+  margin: 60px auto 0;
   font-weight: bold;
-  width: 1000px;
+  width: 100%;
 }
 
 #history-list li.green {
@@ -62,11 +61,10 @@ body {
   margin-right: 10px;
 }
 
-#history-list div {
-  text-align: center;
+#no-transactions{
   font-size: 16px;
   font-weight: normal;
-  background-color: red;
+  padding-right: 35px;
 }
 
 main {
@@ -81,7 +79,10 @@ main div {
   width: 100%;
   text-align: center;
 }
-
+#history-list {
+  width: 70%;
+  margin: 0 auto;
+}
 #history-list li span {
   float: right;
 }
@@ -117,43 +118,59 @@ footer.dark-mode a {
   background-color: rgb(33, 33, 33);
   color: white;
 }
-
 @media screen and (max-width: 1520px) {
-  body {
-    height: 100vh;
-  }
 
-  #container {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  #sidebar {
-    position: absolute;
+  #darkModeButton {
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
   }
+  #container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
 
+  #sidebar {
+    position: relative;
+    margin-top: 30px;
+    width: 100%;
+  }
+
+  #sidebar span {
+    display: none;
+  }
+  #sidebar li a{
+    padding: 50px 10px;
+    text-align: center;
+    font-size: 24px;
+  }
+  #no-transactions {
+    position: relative;
+    top: 120px;
+    font-size: 24px;
+    padding: 0;
+
+  }
   h1 {
     display: none;
   }
-
   #history-list {
-    margin-top: 200px;
+    position: relative;
+    top: -50px;
+    left: -10px;
     width: 100%;
-    display: flex;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    flex-direction: column;
-    justify-content: center;
-    font-size: 12px;
   }
-
+  #history-list img {
+    scale: 1.2;
+  }
+  #history-list li {
+    font-size: 20px;
+  }
+  #history-list li span {
+    float: none;
+    display: block;
+  }
   footer {
     display: none;
   }

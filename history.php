@@ -22,7 +22,7 @@ include_once 'backend/session.php';
 <body>
   <div id="container">
     <div id="sidebar">
-      <div class="d-flex flex-column flex-shrink-0 p-3 " style="width: 280px;">
+      <div class="d-flex flex-column flex-shrink-0 p-3 ">
         <a href="index.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-black text-decoration-none">
           <span class="fs-4">Bank Accounts</span>
         </a>
@@ -48,10 +48,8 @@ include_once 'backend/session.php';
         <?php if (!empty($_SESSION['history'])) {
           foreach ($_SESSION['history'] as $event)
             echo $event;
-        } ?>
+        } else echo "<div id='no-transactions'>No transactions</div>"; ?>
       </ul>
-      <?php if (empty($_SESSION['history']))
-        echo "<div>No transactions</div>"; ?>
     </main>
   </div>
   <footer class="py-3 my-4">
