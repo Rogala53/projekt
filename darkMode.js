@@ -3,7 +3,7 @@ const isDarkMode = sessionStorage.getItem("darkMode") === "true";
 let pkoLogo = $("#pkoLogo");
 
 if (isDarkMode) {
-    $("body, #sidebar,input, label, footer").addClass("dark-mode");
+    $("body, #sidebar, input, label, footer").addClass("dark-mode");
     darkModeButton.attr("src", "./images/dark-mode.png");
     pkoLogo.attr("src", "./images/PKO-darkmode.jpg");
     pkoLogo.attr("width", "122px");
