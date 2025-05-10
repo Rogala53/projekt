@@ -210,61 +210,43 @@ input.dark-mode {
 label.dark-mode {
   background: none;
 }
-@media screen and (max-width: 1520px) {
+@media screen and (max-width: 1024px) {
+  #container {
+    flex-direction: column;
+  }
   #darkModeButton {
-    top: 10px;
     left: 50%;
     transform: translateX(-50%);
   }
-  #container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
   #sidebar {
-    margin-top: 30px;
+    span {
+      display: none;
+    }
+    position: relative;
+    top: 30px;
     width: 100%;
-  }
-  #sidebar li a{
-    padding: 50px 10px;
-    text-align: center;
-    font-size: 24px;
-  }
-  #sidebar span {
-    display: none;
+    li a{
+      padding: 50px 10px;
+      text-align: center;
+      font-size: 24px;
+    }
   }
   #accounts {
-    width: 100%;
-    display: flex;
     flex-direction: column;
-    align-items: center;
-  }
-  #account1 img {
-    position: relative;
-    left: 20px;
-    top: 60px;
-  }
-  #account2 img {
-    position: relative;
-    left: 20px;
-    top: 70px;
-  } 
-  #account1 h2, #account2 h2 {
-    position: relative;
-    top: -25px;
-    left: 250px;
+    margin-right: 0;
+    margin-left: 0;
+    justify-content: center;
+    #account1, #account2 {
+      margin-top: 50px;
+      width: 100%;
+      button {
+        margin: 0 auto;
+        display: block;
+      }
+    }
   }
   label {
     transform: translate(-10px, -18px) scale(0.7);
-  }
-  h2 {
-    margin-top: 15px;
-    font-size: 24px;
-    width: 100%;
-  }
-  h2 span {
-    width: 100%;
   }
   footer {
     display: none;

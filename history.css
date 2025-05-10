@@ -117,8 +117,7 @@ footer.dark-mode a {
   background-color: rgb(33, 33, 33);
   color: white;
 }
-@media screen and (max-width: 1520px) {
-
+@media screen and (max-width: 768px) {
   #darkModeButton {
     top: 10px;
     left: 50%;

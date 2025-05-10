@@ -69,7 +69,7 @@ function FocusOutOfInput(input) {
 
 // funkcje do animacji labeli
 function AnimateLabelFocusIn(label) {
-  if(window.innerWidth > 1520) {
+  if(window.innerWidth > 768) {
     label.style.transform = "translate(-10px, -18px) scale(0.7)";
     label.style.opacity = "1";
   }
