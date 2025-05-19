@@ -1,0 +1,222 @@
+@import "_settings";
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number]{
+    -moz-appearance: textfield;
+}
+
+.message {
+  background-color: $backgroundColor;
+  padding: 20px;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-weight: bolder;
+  font-size: 16px;
+  animation: slideDown 0.5s ease-in-out forwards,
+    slideUp 1s ease-in-out 3s forwards;
+  border-radius: 10px;
+  z-index: 1000;
+  color: black;
+}
+
+div.failure {
+  border: 2px solid $failureColor;
+  color: $failureColor;
+}
+
+div.success {
+  border: 2px solid $successColor;
+  color: $successColor;
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translate(-50%, -100px);
+  }
+
+  100% {
+    transform: translate(-50%, 0px);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translate(-50%, 0px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-50%, -100px);
+    opacity: 0;
+  }
+}
+
+.sidebar {
+  span {
+    margin-left: 10px;
+  }
+  * :not(.active) {
+    color: black;
+  }
+  &.dark-mode {
+    color: white;
+    background-color: $darkModeBackgroundColor;
+    * :not(.active) {
+      color: white;
+    }
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.accounts {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-grow: 1;
+  gap: 10px;
+  margin-top: 50px;
+}
+
+.account-left,
+.account-right {
+  width: 24%;
+  text-align: center;
+}
+
+h2 {
+  font-size: 32px;
+  width: 100%;
+  span {
+    width: 100%;
+  }
+}
+
+form {
+  margin-top: 20px;
+  > * {
+    margin: 10px;
+    padding: 15px;
+  }
+  input {
+    border: 1px solid black;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 15px;
+  }
+}
+  label {
+    position: absolute;
+    transition: all 0.2s ease-in-out;
+    margin-top: 10px;
+    color: rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+  }
+
+
+button {
+  color: white;
+  cursor: pointer;
+  background-color: rgba(10, 0, 120, 0.73);
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  :hover {
+    background-color: rgb(0, 0, 120);
+  }
+}
+.account-left img {
+  margin-bottom: 0;
+}
+
+.account-right {
+  img {
+    margin-bottom: 22px;
+  }
+  button {
+    color: black;
+    background-color: rgb(255, 136, 0);
+    :hover {
+      background-color: rgb(237, 126, 0);
+    }
+  }
+}
+
+footer {
+  display: block;
+  position: relative;
+  width: 100%;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  a {
+    color: black;
+    text-decoration: none;
+  }
+  &.dark-mode ul li a {
+    color: #ffffff;
+  }
+}
+
+input.dark-mode {
+  border: 1px solid #808080;
+}
+label.dark-mode {
+  background: none;
+}
+@media screen and (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+  }
+  #dark-mode-button {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .sidebar {
+    span {
+      display: none;
+    }
+    position: relative;
+    top: 30px;
+    width: 100%;
+    li a {
+      padding: 50px 10px;
+      text-align: center;
+      font-size: 24px;
+    }
+  }
+  .accounts {
+    flex-direction: column;
+    margin-right: 0;
+    margin-left: 0;
+    justify-content: center;
+    .account-left,
+    .account-right {
+      margin-top: 50px;
+      width: 100%;
+      button {
+        margin: 0 auto;
+        display: block;
+      }
+    }
+  }
+  label {
+    transform: translate(-10px, -18px) scale(0.7);
+  }
+  footer {
+    display: none;
+  }
+}

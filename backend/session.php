@@ -6,7 +6,7 @@ if (!isset($_SESSION['account_1_balance'])) {
     $_SESSION['account_1_balance'] = 0;
     $_SESSION['account_2_balance'] = 0;
     $_SESSION['form_token'] = bin2hex(random_bytes(16));
-    $_SESSION['message_color'] = '';
+    $_SESSION['message_status'] = '';
     $_SESSION['message'] = '';
     $_SESSION['history'] = [];
 }

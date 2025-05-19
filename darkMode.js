@@ -1,21 +1,21 @@
-const darkModeButton = $("#darkModeButton");
+const darkModeButton = $("#dark-mode-button");
 const isDarkMode = sessionStorage.getItem("darkMode") === "true";
 let pkoLogo = $("#pkoLogo");
 
 if (isDarkMode) {
-    $("body, #sidebar, input, label, footer").addClass("dark-mode");
+    $("body, .sidebar, input, label, footer").addClass("dark-mode");
     darkModeButton.attr("src", "./images/dark-mode.png");
     pkoLogo.attr("src", "./images/PKO-darkmode.jpg");
     pkoLogo.attr("width", "122px");
 } else {
-    $("body, #sidebar, input, label, footer").removeClass("dark-mode");
+    $("body, .sidebar, input, label, footer").removeClass("dark-mode");
     darkModeButton.attr("src", "./images/light-mode.png");
     pkoLogo.attr("src", "./images/PKO.png");
     pkoLogo.attr("width", "100px");
 }
 
 darkModeButton.click(function () {
-    $("body, #sidebar, input, label, footer").toggleClass("dark-mode");
+    $("body, .sidebar, input, label, footer").toggleClass("dark-mode");
 
     const currentlyDark = $("body").hasClass("dark-mode");
     sessionStorage.setItem("darkMode", currentlyDark);

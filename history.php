@@ -20,9 +20,8 @@ include_once 'backend/session.php';
 </head>
 
 <body>
-  <div id="container">
-    <div id="sidebar">
-      <div class="d-flex flex-column flex-shrink-0 p-3 ">
+  <div class="container">
+      <div class="sidebar d-flex flex-column flex-shrink-0 p-3 ">
         <a href="index.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-black text-decoration-none">
           <span class="fs-4">Bank Accounts</span>
         </a>
@@ -41,17 +40,16 @@ include_once 'backend/session.php';
         </ul>
       </div>
     </div>
-    <img src="./images/dark-mode.png" alt="darkmode" id="darkModeButton">
+    <img src="./images/dark-mode.png" alt="darkmode" id="dark-mode-button">
     <main>
       <h1>History</h1>
-      <ul id="history-list">
+      <ul class="history-list">
         <?php if (!empty($_SESSION['history'])) {
           foreach ($_SESSION['history'] as $event)
             echo $event;
-        } else echo "<div id='no-transactions'>No transactions</div>"; ?>
+        } else echo "<div class='no-transactions'>No transactions</div>"; ?>
       </ul>
     </main>
-  </div>
   <footer class="py-3 my-4">
     <ul class="nav justify-content-center pb-3 mb-3 ">
       <li class="nav-item"><a href="index.php" class="px-2 ">Accounts</a></li>

@@ -5,8 +5,33 @@
   box-sizing: border-box;
 }
 
-input::-webkit-inner-spin-button,
-input::-webkit-outer-spin-button {
+body {
+  background-color: #f5f5f5;
+}
+
+.dark-mode {
+  background-color: #212121;
+  color: #ffffff;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  background-color: #f5f5f5;
+  color: #000000;
+}
+
+#dark-mode-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
@@ -15,14 +40,8 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-body {
-  background-color: rgb(246, 246, 246);
-  display: flex;
-  flex-direction: column;
-}
-
-#message {
-  background-color: rgb(243, 243, 243);
+.message {
+  background-color: #f5f5f5;
   padding: 20px;
   position: absolute;
   top: 10px;
@@ -34,87 +53,68 @@ body {
   animation: slideDown 0.5s ease-in-out forwards, slideUp 1s ease-in-out 3s forwards;
   border-radius: 10px;
   z-index: 1000;
+  color: black;
 }
 
-div.red {
+div.failure {
   border: 2px solid #ff0000;
-  color: red;
+  color: #ff0000;
 }
 
-div.green {
-  border: 2px solid rgb(0, 160, 0);
-  color: rgb(0, 160, 0);
+div.success {
+  border: 2px solid #129112;
+  color: #129112;
 }
 
 @keyframes slideDown {
   0% {
     transform: translate(-50%, -100px);
   }
-
   100% {
     transform: translate(-50%, 0px);
   }
 }
-
 @keyframes slideUp {
   0% {
     transform: translate(-50%, 0px);
     opacity: 1;
   }
-
   100% {
     transform: translate(-50%, -100px);
     opacity: 0;
   }
 }
-
-#sidebar {
-  width: 280px;
-  background-color: rgb(246, 246, 246);
-}
-
-#sidebar span {
+.sidebar span {
   margin-left: 10px;
 }
-
-#sidebar * :not(.active) {
+.sidebar * :not(.active) {
   color: black;
 }
-
-#sidebar.dark-mode {
+.sidebar.dark-mode {
   color: white;
-  background-color: rgb(33, 33, 33);
+  background-color: #212121;
 }
-
-#sidebar.dark-mode * :not(.active) {
+.sidebar.dark-mode * :not(.active) {
   color: white;
 }
 
-#darkModeButton {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-}
-
-#container {
+.container {
   display: flex;
   flex-direction: row;
   gap: 10px;
 }
 
-#accounts {
+.accounts {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   flex-grow: 1;
   gap: 10px;
   margin-top: 50px;
-  margin-right: 240px;
 }
 
-#account1,
-#account2 {
+.account-left,
+.account-right {
   width: 24%;
   text-align: center;
 }
@@ -130,12 +130,10 @@ h2 span {
 form {
   margin-top: 20px;
 }
-
-form>* {
+form > * {
   margin: 10px;
   padding: 15px;
 }
-
 form input {
   border: 1px solid black;
   font-size: 16px;
@@ -144,7 +142,7 @@ form input {
   padding: 15px;
 }
 
-form label {
+label {
   position: absolute;
   transition: all 0.2s ease-in-out;
   margin-top: 10px;
@@ -160,25 +158,22 @@ button {
   border-radius: 10px;
   margin-bottom: 20px;
 }
-
-button:hover {
+button :hover {
   background-color: rgb(0, 0, 120);
 }
 
-#account2 img {
-  margin-bottom: 22px;
-}
-
-#account1 img {
+.account-left img {
   margin-bottom: 0;
 }
 
-#account2 button {
+.account-right img {
+  margin-bottom: 22px;
+}
+.account-right button {
   color: black;
   background-color: rgb(255, 136, 0);
 }
-
-#account2 button:hover {
+.account-right button :hover {
   background-color: rgb(237, 126, 0);
 }
 
@@ -190,60 +185,58 @@ footer {
   left: 50%;
   transform: translateX(-50%);
 }
-
 footer a {
   color: black;
   text-decoration: none;
 }
-
-footer.dark-mode a {
-  color: white;
+footer.dark-mode ul li a {
+  color: #ffffff;
 }
 
-.dark-mode {
-  background-color: rgb(33, 33, 33);
-  color: white;
-}
 input.dark-mode {
   border: 1px solid #808080;
- }
+}
+
 label.dark-mode {
   background: none;
 }
+
 @media screen and (max-width: 1024px) {
-  #container {
+  .container {
     flex-direction: column;
   }
-  #darkModeButton {
+  #dark-mode-button {
     left: 50%;
     transform: translateX(-50%);
   }
-  #sidebar {
-    span {
-      display: none;
-    }
+  .sidebar {
     position: relative;
     top: 30px;
     width: 100%;
-    li a{
-      padding: 50px 10px;
-      text-align: center;
-      font-size: 24px;
-    }
   }
-  #accounts {
+  .sidebar span {
+    display: none;
+  }
+  .sidebar li a {
+    padding: 50px 10px;
+    text-align: center;
+    font-size: 24px;
+  }
+  .accounts {
     flex-direction: column;
     margin-right: 0;
     margin-left: 0;
     justify-content: center;
-    #account1, #account2 {
-      margin-top: 50px;
-      width: 100%;
-      button {
-        margin: 0 auto;
-        display: block;
-      }
-    }
+  }
+  .accounts .account-left,
+  .accounts .account-right {
+    margin-top: 50px;
+    width: 100%;
+  }
+  .accounts .account-left button,
+  .accounts .account-right button {
+    margin: 0 auto;
+    display: block;
   }
   label {
     transform: translate(-10px, -18px) scale(0.7);
@@ -251,4 +244,4 @@ label.dark-mode {
   footer {
     display: none;
   }
-}
+}/*# sourceMappingURL=style.css.map */

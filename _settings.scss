@@ -1,0 +1,34 @@
+$myFont: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+$successColor: #129112;
+$failureColor: #ff0000;
+
+$backgroundColor: #f5f5f5;
+$darkModeBackgroundColor: #212121;
+
+* {
+  font-family: $myFont;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: $backgroundColor;
+}
+.dark-mode {
+  background-color: $darkModeBackgroundColor;
+  color: #ffffff;
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  background-color: $backgroundColor;
+  color:#000000;
+}
+#dark-mode-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}

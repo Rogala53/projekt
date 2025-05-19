@@ -21,34 +21,36 @@ include_once 'backend/session.php';
 </head>
 
 <body>
-  <div id="message" class="<?= $_SESSION['message_color'] ?>"
+  <div class="message <?= $_SESSION['message_status'] ?>"
     style="display: <?= !empty($_SESSION['message']) ? 'block' : 'none' ?>">
     <?= $_SESSION['message'] ?>
   </div>
-  <div id="container">
-    <div id="sidebar" class="d-flex flex-column flex-shrink-0 p-3 ">
-      <a href="index.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none ">
-        <span class="fs-4">Bank Accounts</span>
-      </a>
-      <hr>
-      <ul class="nav nav-pills flex-column mb-auto">
-        <li class="nav-item">
-          <a href="#" class="nav-link active" aria-current="page">
-            Accounts
-          </a>
-        </li>
-        <li>
-          <a href="history.php" class="nav-link">
-            History
-          </a>
-        </li>
-      </ul>
+  <div class="container">
+    <div class="sidebar">
+      <div class="d-flex flex-column flex-shrink-0 p-3 ">
+        <a href="index.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none ">
+          <span class="fs-4">Bank Accounts</span>
+        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+            <a href="#" class="nav-link active" aria-current="page">
+              Accounts
+            </a>
+          </li>
+          <li>
+            <a href="history.php" class="nav-link">
+              History
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <img src="./images/dark-mode.png" alt="darkmode" id="darkModeButton">
-    <div id="accounts">
-      <div id="account1">
+    <img src="./images/dark-mode.png" alt="darkmode" id="dark-mode-button">
+    <div class="accounts">
+      <div class="account-left">
         <img id="pkoLogo" alt="PKO" width="100px" height="122px">
-        <h2>Balance: <span id="balance1"><?= $_SESSION['account_1_balance'] ?></span> zł</h2>
+        <h2>Balance: <span id="balance1" class="account-balance-left"><?= $_SESSION['account_1_balance'] ?></span> zł</h2>
         <form method="post">
           <input type="hidden" name="form_token" value="<?= $_SESSION['form_token'] ?>">
           <label id="addLabel1" for="addInput1">Deposit</label>
@@ -62,9 +64,9 @@ include_once 'backend/session.php';
           <button id="transferButton1" type="submit" name="action" value="transfer1">Transfer</button>
         </form>
       </div>
-      <div id="account2">
-        <img src="./images/ING.png" alt="ING" width="100px">
-        <h2>Balance: <span id="balance2"><?= $_SESSION['account_2_balance'] ?></span> zł</h2>
+      <div class="account-right">
+        <img src="./images/ING.png" alt="ING" width="100">
+        <h2>Balance: <span id="balance2" class="account-balance-right"><?= $_SESSION['account_2_balance'] ?></span> zł</h2>
         <form method="post">
           <input type="hidden" name="form_token" value="<?= $_SESSION['form_token'] ?>">
           <label id="addLabel2" for="addInput2">Deposit</label>
