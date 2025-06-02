@@ -1,5 +1,12 @@
 <?php
 include_once 'backend/session.php';
+include_once 'backend/Db_handler.php';
+$db_handler = new Db_handler('localhost', 'root', '', 'prog_aplik');
+$db_handler->connect();
+$conn = $db_handler->get_connection();
+include_once 'backend/Transactions_handler.php';
+$tr_handler = new Transactions_handler();
+$tr_handler->set_history_list($conn);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,10 +51,23 @@ include_once 'backend/session.php';
     <main>
       <h1>History</h1>
       <ul class="history-list">
-        <?php if (!empty($_SESSION['history'])) {
-          foreach ($_SESSION['history'] as $event)
-            echo $event;
-        } else echo "<div class='no-transactions'>No transactions</div>"; ?>
+        <?php
+            $history = $tr_handler->get_history();
+            if(empty($history)) {
+              echo "<div class='no-transactions'>No transactions</div>";
+            } else {
+              foreach ($history as $event) {
+              if ($event['status']) {
+                $status = 'success';
+              } else {
+                $status = 'failure';
+              }
+              $message = $event['message'];
+              $date = $event['date'];
+              echo "<li class='history-item $status'>$message<span>$date</span></li>";
+              }
+            }
+             ?>
       </ul>
     </main>
   <footer class="py-3 my-4">
@@ -60,3 +80,5 @@ include_once 'backend/session.php';
 </body>
 
 </html>
+
+

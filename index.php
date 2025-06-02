@@ -50,7 +50,7 @@ include_once 'backend/session.php';
     <div class="accounts">
       <div class="account-left">
         <img id="pkoLogo" alt="PKO" width="100px" height="122px">
-        <h2>Balance: <span id="balance1" class="account-balance-left"><?= $_SESSION['account_1_balance'] ?></span> zł</h2>
+        <h2>Balance: <span id="balance1" class="account-balance-left"><?= $_SESSION['account1']->get_balance() ?></span> zł</h2>
         <form method="post">
           <input type="hidden" name="form_token" value="<?= $_SESSION['form_token'] ?>">
           <label id="addLabel1" for="addInput1">Deposit</label>
@@ -66,7 +66,7 @@ include_once 'backend/session.php';
       </div>
       <div class="account-right">
         <img src="./images/ING.png" alt="ING" width="100">
-        <h2>Balance: <span id="balance2" class="account-balance-right"><?= $_SESSION['account_2_balance'] ?></span> zł</h2>
+        <h2>Balance: <span id="balance2" class="account-balance-right"><?= $_SESSION['account2']->get_balance() ?></span> zł</h2>
         <form method="post">
           <input type="hidden" name="form_token" value="<?= $_SESSION['form_token'] ?>">
           <label id="addLabel2" for="addInput2">Deposit</label>
