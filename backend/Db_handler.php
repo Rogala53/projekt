@@ -28,14 +28,14 @@ class Db_handler {
         return $this->conn;
     }
 
-    public function get_accounts() {
+    public function get_accounts_names_and_balance_from_db() {
         try {
             $stmt = $this->conn->prepare("SELECT name, balance FROM accounts");
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
             
         } catch (PDOException $e) {
-            echo "Connection failed: " . $e->getMessage();
+            echo "Failed getting accounts: " . $e->getMessage();
         }
     }
 
@@ -45,8 +45,7 @@ class Db_handler {
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
-            echo "Connection failed: " . $e->getMessage();
+            echo "Failed getting history: " . $e->getMessage();
         }
     }
-
 }

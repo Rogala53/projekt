@@ -30,6 +30,9 @@ body {
   cursor: pointer;
 }
 
+.sidebar {
+  width: 15%;
+}
 .sidebar span {
   margin-left: 10px;
 }
@@ -45,7 +48,7 @@ body {
 
 .history-list {
   flex-direction: column;
-  margin: 80px auto 0;
+  margin: 100px auto 0;
   font-weight: bold;
   width: 70%;
 }

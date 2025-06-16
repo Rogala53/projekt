@@ -3,19 +3,20 @@ include_once("Db_handler.php");
 include_once ("IAccount.php");
 include_once("Account.php");
 include_once('Transactions_handler.php');
-// obsługa sesji i formularza
+
 session_start();
 $db_handler = new Db_handler('localhost', 'root', '', 'prog_aplik');
 $db_handler->connect();
 $tr_handler  = new Transactions_handler();
 $conn = $db_handler->get_connection();
-$accounts = $db_handler->get_accounts();
+$accounts = $db_handler->get_accounts_names_and_balance_from_db();
 if(empty($accounts)) {
     echo "Brak kont";
 }
 if (!isset($_SESSION['account1'])) {
-    $_SESSION['account1'] = new Account($accounts[0]['name']);
-    $_SESSION['account2'] = new Account($accounts[1]['name']);
+    $_SESSION['account1'] = new Account($accounts[0]['name'], $accounts[0]['balance']);
+    $_SESSION['account2'] = new Account($accounts[1]['name'], $accounts[1]['balance']);
+
     $_SESSION['form_token'] = bin2hex(random_bytes(16));
     $_SESSION['message'] = '';
     $_SESSION['message_status'] = '';

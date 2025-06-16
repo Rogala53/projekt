@@ -5,15 +5,14 @@ class Account implements IAccount
     private string $name;
     private float $balance;
 
-    function __construct(string $name) {
+    function __construct(string $name, float $balance = 0) {
         $this->name = $name;
-        $this->balance = 0;
+        $this->balance = $balance;
     }
 
     function get_balance() {
         return $this->balance;
     }
-
     function get_name() {
         return $this->name;
     }
@@ -56,6 +55,23 @@ class Account implements IAccount
 
         } catch (Exception $e) {
             echo "Nie udało się odjąć balansu: " . $e->getMessage();
+            return false;
+        }
+    }
+
+    function set_balance_from_db($conn) {
+        try {
+            $stmt = $conn->prepare("SELECT balance FROM accounts WHERE name = :name");
+            $stmt->bindParam(':name', $this->name);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            if ($result) {
+                $this->balance = $result['balance'];
+                return true;
+            }
+            return false;
+        } catch (Exception $e) {
+            echo "Nie udało się pobrać balansu z bazy danych: " . $e->getMessage();
             return false;
         }
     }

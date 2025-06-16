@@ -1,5 +1,12 @@
 <?php
 include_once 'backend/session.php';
+include_once 'backend/Db_handler.php';
+include_once 'backend/Account.php';
+$db_handler = new Db_handler('localhost', 'root', '', 'prog_aplik');
+$db_handler->connect();
+$conn = $db_handler->get_connection();
+$_SESSION['account1']->set_balance_from_db($conn);
+$_SESSION['account2']->set_balance_from_db($conn);
 ?>
 <!DOCTYPE html>
 <html lang="pl">

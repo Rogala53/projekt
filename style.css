@@ -84,6 +84,9 @@ div.success {
     opacity: 0;
   }
 }
+.sidebar {
+  width: 15%;
+}
 .sidebar span {
   margin-left: 10px;
 }
@@ -204,6 +207,7 @@ label.dark-mode {
 @media screen and (max-width: 1024px) {
   .container {
     flex-direction: column;
+    padding-bottom: 30px;
   }
   #dark-mode-button {
     left: 50%;

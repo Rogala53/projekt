@@ -1,6 +1,7 @@
 @import '_settings';
 
 .sidebar {
+  width: 15%;
   span {
     margin-left: 10px;
   }
@@ -18,7 +19,7 @@
 
 .history-list {
   flex-direction: column;
-  margin: 80px auto 0;
+  margin: 100px auto 0;
   font-weight: bold;
   width: 70%;
   li {
